@@ -10,9 +10,11 @@ const url = 'http://api.weatherstack.com/current?access_key=de5f89956bbd944a0b81
             } else if (response.body.error) {
                 callback('Unable to find location', undefined)
             } else {
-                callback(undefined, '('+response.body.current.weather_descriptions +') It is currently ' 
-                +response.body.current.temperature +'C outside. It feels like '
-                +response.body.current.feelslike + 'C with '
+                callback(undefined, 'CURRENT WEATHER: ('+response.body.current.weather_descriptions+
+                ') It is ' +response.body.current.temperature +'C outside. It feels like '
+                +response.body.current.feelslike + 'C. Humidity Level is ' 
+                +response.body.current.humidity+ '% and visibility is '
+                +response.body.current.visibility+ 'Km. There is '
                 +response.body.current.precip+ '% chance of rain')
             }
             
